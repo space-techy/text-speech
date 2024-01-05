@@ -5,11 +5,20 @@ import fs from "fs";
 
 const port = 3000;
 const app = Express();
-const api_key = "b4a8682dd3mshdda7ce718b44bb9p19bb49jsn9f8a83c0dc96";
+
+
+const api_key = ;
+//You can enter your api key from rapidapi here
+//Delete the api keys after use
+
+const send_sentence = "Hello, This is for testing. You can put your own words here!";
+//You can replace this sentences by your own
+
+
 const api_host = "text-to-speech27.p.rapidapi.com";
 const api_site = "https://text-to-speech27.p.rapidapi.com/speech/";
 
-var send_sentence = "Hello World! How are you? I am Nikhil";
+
 
 // This is for now giving text input currently
 
