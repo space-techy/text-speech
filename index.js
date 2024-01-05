@@ -7,11 +7,11 @@ const port = 3000;
 const app = Express();
 
 
-const api_key = ;
+var api_key = "";
 //You can enter your api key from rapidapi here
 //Delete the api keys after use
 
-const send_sentence = "Hello, This is for testing. You can put your own words here!";
+var send_sentence = "";
 //You can replace this sentences by your own
 
 
@@ -28,8 +28,20 @@ app.use(Express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res)=>{
-    res.render("index.ejs");
+    res.render("index.ejs",{
+        api_key: api_key
+    });
 }); 
+
+app.post("/submitAPIkey", (req, res)=>{
+    api_key = req.body["api_key"];
+    res.redirect("/");
+});
+
+app.post("/submitSentence", ( req, res)=>{
+    send_sentence = req.body["sentence"];
+    res.render("sound.ejs");
+});
 
 app.get("/spe", async ( req, res)=>{
         var text_sound = await axios.get(api_site, {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    
+</head>
+<body>
+    <p>Wait for sometime as it takes time to completely process the audio!</p>
+    <audio id="audioPlayer" controls>
+        Your browser does not support the audio element.
+    </audio>
+</body>
+    <script>
+        fetch("/spe")
+            .then(res => res.arrayBuffer())
+            .then(audioData => {
+                const audioBlob = new Blob([audioData], {type: "type/mpeg"});
+                const audioURL = URL.createObjectURL(audioBlob);
+                
+                const audioPlayer = document.getElementById("audioPlayer");
+                audioPlayer.src = audioURL;
+            })
+            .catch(error => {
+                console.error('Error fetching audio:', error);
+            });
+        
+    </script>
+</html>
