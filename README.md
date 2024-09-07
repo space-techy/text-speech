@@ -1,5 +1,7 @@
 # Text to Speech
 
+A website for converting text into speech using rapidapi api. It was made as a test project for making APIs.
+
 # How to Install?
 
 After downloading and unzipping the file.
